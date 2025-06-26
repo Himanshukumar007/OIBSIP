@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4" tabindex="0">User Profile: {{ username }}</h2>
+
+<div class="card p-4 shadow-sm" style="max-width: 600px; margin: auto;">
+  <div class="mb-3">
+    <strong>Username:</strong> {{ username }}
+  </div>
+  <div class="mb-3">
+    <strong>Email:</strong> {{ email if email else "Not provided" }}
+  </div>
+  <div class="mb-3">
+    <strong>Member since:</strong> {{ member_since if member_since else "Unknown" }}
+  </div>
+  <div class="mb-3">
+    <strong>Bio:</strong>
+    <p>{{ bio if bio else "No bio available." }}</p>
+  </div>
+  <a href="{{ url_for('dashboard') }}" class="btn btn-primary" aria-label="Back to Dashboard">Back to Dashboard</a>
+</div>
+{% endblock %}

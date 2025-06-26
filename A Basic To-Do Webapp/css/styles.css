@@ -1,0 +1,296 @@
+/* === Base Styles === */
+:root {
+  --light-bg: #f9f9f9;
+  --light-text: #333;
+  --light-container-bg: #fff;
+  --light-primary: #007BFF;
+  --light-primary-hover: #0056b3;
+  --light-success: #28a745;
+  --light-success-hover: #1e7e34;
+  --light-warning: #ffc107;
+  --light-warning-hover: #d39e00;
+  --light-danger: #dc3545;
+  --light-danger-hover: #a71d2a;
+  --light-pending-bg: #f1f1f1;
+  --light-completed-bg: #d1ffd6;
+  --light-completed-text: #2e7d32;
+
+  --dark-bg: #121212;
+  --dark-text: #e0e0e0;
+  --dark-container-bg: #1e1e1e;
+  --dark-primary: #90caf9;
+  --dark-primary-hover: #5d99c6;
+  --dark-success: #81c784;
+  --dark-success-hover: #4caf50;
+  --dark-warning: #ffb74d;
+  --dark-warning-hover: #f57c00;
+  --dark-danger: #e57373;
+  --dark-danger-hover: #d32f2f;
+  --dark-pending-bg: #2a2a2a;
+  --dark-completed-bg: #144d14;
+  --dark-completed-text: #a5d6a7;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: var(--light-container-bg);
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  color: var(--light-text);
+  margin-bottom: 20px;
+  transition: color 0.4s;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#taskInput {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, background-color 0.4s, color 0.4s;
+}
+
+#taskInput:focus {
+  border-color: var(--light-primary);
+  outline: none;
+}
+
+button#addBtn {
+  background-color: var(--light-primary);
+  color: white;
+  border: none;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#addBtn:hover {
+  background-color: var(--light-primary-hover);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background-color: var(--light-pending-bg);
+  margin-bottom: 12px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  word-break: break-word;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.task-item.completed {
+  background-color: var(--light-completed-bg);
+  color: var(--light-completed-text);
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.task-text {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.task-meta {
+  font-size: 12px;
+  color: #666;
+  margin-left: 10px;
+  white-space: nowrap;
+  transition: color 0.4s;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.task-buttons button {
+  border: none;
+  background: var(--light-primary);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.task-buttons button:hover {
+  background-color: var(--light-primary-hover);
+}
+
+.task-buttons button.delete-btn {
+  background-color: var(--light-danger);
+}
+
+.task-buttons button.delete-btn:hover {
+  background-color: var(--light-danger-hover);
+}
+
+.task-buttons button.edit-btn {
+  background-color: var(--light-warning);
+  color: #212529;
+}
+
+.task-buttons button.edit-btn:hover {
+  background-color: var(--light-warning-hover);
+}
+
+.task-buttons button.complete-btn {
+  background-color: var(--light-success);
+}
+
+.task-buttons button.complete-btn:hover {
+  background-color: var(--light-success-hover);
+}
+
+/* Dark mode styles */
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode .container {
+  background: var(--dark-container-bg);
+  color: var(--dark-text);
+}
+
+body.dark-mode h2 {
+  color: var(--dark-text);
+}
+
+body.dark-mode #taskInput {
+  background-color: #333;
+  color: var(--dark-text);
+  border-color: #555;
+}
+
+body.dark-mode #taskInput:focus {
+  border-color: var(--dark-primary);
+}
+
+body.dark-mode button#addBtn {
+  background-color: var(--dark-primary);
+  color: var(--dark-text);
+}
+
+body.dark-mode button#addBtn:hover {
+  background-color: var(--dark-primary-hover);
+}
+
+body.dark-mode .task-item {
+  background-color: var(--dark-pending-bg);
+  color: var(--dark-text);
+  box-shadow: none;
+}
+
+body.dark-mode .task-item.completed {
+  background-color: var(--dark-completed-bg);
+  color: var(--dark-completed-text);
+}
+
+body.dark-mode .task-meta {
+  color: #aaa;
+}
+
+body.dark-mode .task-buttons button {
+  background-color: var(--dark-primary);
+  color: var(--dark-text);
+}
+
+body.dark-mode .task-buttons button:hover {
+  background-color: var(--dark-primary-hover);
+}
+
+body.dark-mode .task-buttons button.delete-btn {
+  background-color: var(--dark-danger);
+}
+
+body.dark-mode .task-buttons button.delete-btn:hover {
+  background-color: var(--dark-danger-hover);
+}
+
+body.dark-mode .task-buttons button.edit-btn {
+  background-color: var(--dark-warning);
+  color: #212529;
+}
+
+body.dark-mode .task-buttons button.edit-btn:hover {
+  background-color: var(--dark-warning-hover);
+}
+
+body.dark-mode .task-buttons button.complete-btn {
+  background-color: var(--dark-success);
+}
+
+body.dark-mode .task-buttons button.complete-btn:hover {
+  background-color: var(--dark-success-hover);
+}
+
+/* Mode toggle button */
+
+#modeToggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--light-primary);
+  transition: color 0.3s ease;
+}
+
+body.dark-mode #modeToggle {
+  color: var(--dark-primary);
+}
+
+#modeToggle:hover {
+  color: var(--light-primary-hover);
+}
+
+body.dark-mode #modeToggle:hover {
+  color: var(--dark-primary-hover);
+}

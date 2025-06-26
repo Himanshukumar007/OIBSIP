@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Messages for {{ username }}</h2>
+<ul class="list-group">
+  {% for msg in messages %}
+  <li class="list-group-item">
+    <strong>From:</strong> {{ msg.from }}<br>
+    <strong>Subject:</strong> {{ msg.subject }}
+  </li>
+  {% else %}
+  <li class="list-group-item">No messages found.</li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('dashboard') }}" class="btn btn-link mt-3">Back to Dashboard</a>
+{% endblock %}

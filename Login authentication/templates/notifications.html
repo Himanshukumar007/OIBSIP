@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Notifications for {{ username }}</h2>
+
+<ul>
+  {% for note in notifications %}
+    <li>{{ note }}</li>
+  {% endfor %}
+</ul>
+
+<a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+{% endblock %}
